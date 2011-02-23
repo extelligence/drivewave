@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>DriveWave</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+  <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+</head>
+<body>
+  <div id="welcome" data-role="page">
+    <div data-role="header" data-backbtn="false">
+      <h1>DriveWave</h1>
+    </div>
+    <div data-role="content">
+      <div class="intro">
+        <h2>やる気の波を見てみましょう。</h2>
+        <ol>
+          <li>ユーザー登録は不要です。
+          <p>TwitterのIDとパスワードがあれば、すぐに使い始められます。</p>
+          </li>
+          <li>簡単に使えます。
+          <p>いつでも、どこでも、簡単にサッと記録できます。</p>
+          </li>
+          <li>モチベーションを見えるようにします。
+          <p>自分のやる気の流れを見える化します。</p>
+          </li>
+        </ol>
+        <p>DriveWaveを使って、自分がどんなときにやる気が上がり、どんなときに下がるのか、見てみましょう。</p>
+      </div>
+      <a href="#start" data-role="button">試しに使ってみる</a>
+    </div>
+    <div data-role="footer" data-id="copyright">
+      <h1>Developed By Takeshi Sato.</h1>
+    </div>
+  </div>
+
+  <!-- いつでも入力画面 -->
+  <div id="start" data-role="page">
+    <div data-role="header" data-backbtn="false">
+      <h1>記録する</h1>
+      <a href="#welcome" class="ui-btn-right">トップ</a>
+    </div>
+    <p class="account">extelligence0 さん</p>
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>今のやる気は、どんな感じですか？</legend>
+        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" />
+        <label for="radio-choice-1">凄く高い</label>
+
+        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
+        <label for="radio-choice-2">高い</label>
+
+        <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" checked="checked" />
+        <label for="radio-choice-3">ふつう</label>
+
+        <input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
+        <label for="radio-choice-4">低い</label>
+
+        <input type="radio" name="radio-choice-1" id="radio-choice-5" value="choice-5" />
+        <label for="radio-choice-5">凄く低い</label>
+      </fieldset>
+      <p>なぜ、今そう感じますか？<br />
+      気づいた事を一言残しておくと、後でとても役に立ちます。</p>
+      <textarea></textarea>
+      <a href="#complete" data-rel="dialog" data-role="button" data-transition="pop">記録する</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-id="menu">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#welcome" data-role="button" data-icon="home" data-theme="a">ホーム</a></li>
+          <li><a href="#start" data-role="button" data-icon="check" data-theme="a">記録する</a></li>
+          <li><a href="#graph" data-role="button" data-icon="minus" data-theme="a">グラフを見る</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 記録完了画面 -->
+  <div id="complete" data-role="dialog">
+    <div data-role="header" data-backbtn="false">
+      <h1>記録完了</h1>
+    </div>
+    <div data-role="content">
+      <p>記録しました。</p>
+    </div>
+  </div>
+</body>
+</html>
