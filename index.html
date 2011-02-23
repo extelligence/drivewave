@@ -9,6 +9,7 @@
   <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
 </head>
 <body>
+  <!-- サイトトップ -->
   <div id="welcome" data-role="page">
     <div data-role="header" data-backbtn="false">
       <h1>DriveWave</h1>
@@ -16,6 +17,8 @@
     <div data-role="content">
       <div class="intro">
         <h2>やる気の波を見てみましょう。</h2>
+        <p>DriveWaveはあなたのやる気を見える化するサービスです。</p>
+        <p>12,345人がDriveWave(ドライブウェーブ)を使っています。</p>
         <ol>
           <li>ユーザー登録は不要です。
           <p>TwitterのIDとパスワードがあれば、すぐに使い始められます。</p>
@@ -36,30 +39,26 @@
     </div>
   </div>
 
-  <!-- いつでも入力画面 -->
+  <!-- 記録画面 -->
   <div id="start" data-role="page">
     <div data-role="header" data-backbtn="false">
       <h1>記録する</h1>
       <a href="#welcome" class="ui-btn-right">トップ</a>
     </div>
-    <p class="account">extelligence0 さん</p>
-    <div data-role="fieldcontain">
-      <fieldset data-role="controlgroup">
+    <div data-role="content">
+      <p class="account">extelligence0 さん</p>
+      <fieldset data-role="controlgroup"> 
         <legend>今のやる気は、どんな感じですか？</legend>
-        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" />
-        <label for="radio-choice-1">凄く高い</label>
-
-        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
-        <label for="radio-choice-2">高い</label>
-
-        <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" checked="checked" />
-        <label for="radio-choice-3">ふつう</label>
-
-        <input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4" />
-        <label for="radio-choice-4">低い</label>
-
-        <input type="radio" name="radio-choice-1" id="radio-choice-5" value="choice-5" />
-        <label for="radio-choice-5">凄く低い</label>
+        <input type="radio" name="radio" id="radio1" value="3" />
+        <label for="radio1">とても高い</label>
+        <input type="radio" name="radio" id="radio2" value="1" />
+        <label for="radio2">高い</label>
+        <input type="radio" name="radio" id="radio3" value="0" checked="checked" />
+        <label for="radio3">ふつう</label>
+        <input type="radio" name="radio" id="radio4" value="-1" />
+        <label for="radio4">低い</label>
+        <input type="radio" name="radio" id="radio5" value="-3" />
+        <label for="radio5">とても低い</label>
       </fieldset>
       <p>なぜ、今そう感じますか？<br />
       気づいた事を一言残しておくと、後でとても役に立ちます。</p>
@@ -87,5 +86,17 @@
       <p>記録しました。</p>
     </div>
   </div>
+
+  <!-- グラフ画面 -->
+  <div id="graph" data-role="page">
+    <div data-role="header" data-backbtn="false">
+      <h1>グラフを見る</h1>
+    </div>
+    <div data-role="content">
+      <p>これはグラフ表示画面です。</p>
+    </div>
+    <div data-role="footer" data-id="menu"></div>
+  </div>
+
 </body>
 </html>
