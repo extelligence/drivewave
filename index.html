@@ -17,22 +17,22 @@
     <div data-role="content">
       <div class="intro">
         <h2>やる気の波を見てみましょう。</h2>
-        <p>DriveWaveはあなたのやる気を見える化するサービスです。</p>
+        <p>DriveWaveはあなたのやる気を見える化するマイクロライフログサービスです。</p>
         <p>12,345人がDriveWave(ドライブウェーブ)を使っています。</p>
         <ol>
           <li>ユーザー登録は不要です。
           <p>TwitterのIDとパスワードがあれば、すぐに使い始められます。</p>
           </li>
           <li>簡単に使えます。
-          <p>いつでも、どこでも、簡単にサッと記録できます。</p>
+          <p>いつでも、どこでも、簡単に、サッと記録できます。</p>
           </li>
-          <li>モチベーションを見えるようにします。
-          <p>自分のやる気の流れを見える化します。</p>
+          <li>モチベーションが見えます。
+          <p>自分のやる気の変化や流れが、見えるようになります。</p>
           </li>
         </ol>
-        <p>DriveWaveを使って、自分がどんなときにやる気が上がり、どんなときに下がるのか、見てみましょう。</p>
+        <p>DriveWaveを使って、自分がどんなときにやる気が上がり、どんなときに下がるのか、見ていきましょう。</p>
       </div>
-      <a href="#start" data-role="button">試しに使ってみる</a>
+      <a href="#start" data-role="button" data-transition="flip">試しに使ってみる</a>
     </div>
     <div data-role="footer" data-id="copyright">
       <h1>Developed By Takeshi Sato.</h1>
@@ -93,7 +93,54 @@
       <h1>グラフを見る</h1>
     </div>
     <div data-role="content">
-      <p>これはグラフ表示画面です。</p>
+    <!-- 1. Add these JavaScript inclusions in the head of your page -->
+    <script type="text/javascript" src="highcharts.js"></script>
+    <!-- 2. Add the JavaScript to initialize the chart on document ready -->
+    <script type="text/javascript">
+      var chart;
+      $(document).ready(function() {
+        chart = new Highcharts.Chart({
+          chart: {
+            renderTo: 'motivation_graph',
+            defaultSeriesType: 'spline',
+            borderColor: '#909090',
+            borderRadius: 5,
+            borderWidth: 1,
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: null
+          },
+          xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+          },
+          yAxis: {
+            title: {
+              text: 'モチベーション'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+            }]
+          },
+          tooltip: {
+            formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                this.x +'日:'+ this.y;
+            }
+          },
+          series: [{
+            name: 'extelligence012 さんのやる気',
+            data: [0, 1, 3, 2, 4, 6, 4, 4, 3, 5, 7, 6, 8, 8]
+          }]
+        });
+      });
+    </script>
+      <!-- 3. Add the container -->
+      <div id="motivation_graph" style="height:230px;width:275px"></div>
     </div>
     <div data-role="footer" data-id="menu"></div>
   </div>
