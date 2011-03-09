@@ -5,8 +5,29 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+  <link rel="stylesheet" href="custom.css" />
   <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+
+<style type="text/css" media="screen">
+    /* Hide text-field*/
+    #slider {
+        display: none;
+    }
+    div.ui-slider {
+        width: 90%;
+    }
+    label.ui-block-right{
+        text-align: right;
+        float: right;
+    }
+    .min-width-480px div.ui-slider {
+        width: 90%;
+    }
+    .min-width-480px label.ui-slider {
+        width: 50%;
+    }
+</style>
 </head>
 <body>
   <!-- サイトトップ -->
@@ -50,22 +71,17 @@
     </div>
     <div data-role="content">
       <p class="account">extelligence0 さん</p>
-      <fieldset data-role="controlgroup"> 
-        <legend>今のやる気は、どんな感じですか？</legend>
-        <input type="radio" name="radio" id="radio1" value="3" />
-        <label for="radio1">とても高い</label>
-        <input type="radio" name="radio" id="radio2" value="1" />
-        <label for="radio2">高い</label>
-        <input type="radio" name="radio" id="radio3" value="0" checked="checked" />
-        <label for="radio3">ふつう</label>
-        <input type="radio" name="radio" id="radio4" value="-1" />
-        <label for="radio4">低い</label>
-        <input type="radio" name="radio" id="radio5" value="-3" />
-        <label for="radio5">とても低い</label>
-      </fieldset>
-      <p>なぜ、今そう感じますか？<br />
-      気づいた事を一言残しておくと、後でとても役に立ちます。</p>
-      <textarea></textarea>
+      <p>今のやる気は、どんな感じですか？</p>
+      <div id="motivation_slider">
+        <input type="range" name="slider" id="slider" value="0" min="-2" max="2" />
+        <div class="ui-grid-a">
+          <div class="ui-block-a"><label for="slider">低い</label></div>
+          <div class="ui-block-b"><label class="ui-block-right" for="slider">高い</label></div>
+        </div>
+      </div>
+      <div id="motivation_note">
+        <textarea></textarea>
+      </div>
       <a href="#complete" data-rel="dialog" data-role="button" data-transition="pop">記録する</a>
     </div>
 
