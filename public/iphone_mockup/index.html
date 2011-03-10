@@ -65,6 +65,10 @@
 
   <!-- 記録画面 -->
   <div id="start" data-role="page">
+    <script type="text/javascript">
+      document.addEventListener("touchmove",touchCancel,false);
+      function touchCancel(e){e.preventDefault();}
+    </script>
     <div data-role="header" data-backbtn="false">
       <h1>記録する</h1>
       <a href="#welcome" class="ui-btn-right">トップ</a>
