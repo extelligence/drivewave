@@ -1,4 +1,6 @@
 Drivewave::Application.routes.draw do
+  resources :themes
+
   get "welcome/index"
   root :to => "welcome#index"
 
