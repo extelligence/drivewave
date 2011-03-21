@@ -1,4 +1,5 @@
 Drivewave::Application.routes.draw do
+  match 'themes/:id/graph' => 'themes#graph'
   resources :motivations, :only => [:create, :destroy]
   resources :themes
 

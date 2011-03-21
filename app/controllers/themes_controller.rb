@@ -83,4 +83,15 @@ class ThemesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # GET /themes/1/graph
+  def graph
+    @theme = Theme.find(params[:id])
+    @motivations = @theme.motivations.order("created_at DESC")
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @theme }
+    end
+  end
 end
