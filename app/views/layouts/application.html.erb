@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Drivewave</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>Drivewave</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div>
+      <% if current_user? %>
+        <p><strong><%= current_user.name %></strong>さん&nbsp;
+        <%= link_to '[ログアウト]', logout_path %></p>
+      <% else %>
+        <%= link_to '[ログイン]', login_path %>
+      <% end %>
+    </div>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
