@@ -1,0 +1,8 @@
+<%=
+  raw @motivations.map{|e|
+    {
+      :x => e.created_at,
+      :y => e.energy
+    }
+  }.to_json
+%>

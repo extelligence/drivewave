@@ -90,8 +90,8 @@ class ThemesController < ApplicationController
     @motivations = @theme.motivations.order("created_at DESC")
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @theme }
+      format.html
+      format.json
     end
   end
 end
