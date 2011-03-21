@@ -15,7 +15,7 @@ class ThemesController < ApplicationController
   def show
     @theme = Theme.find(params[:id])
     @motivation = Motivation.new
-    @motivations = @theme.motivations
+    @motivations = @theme.motivations.order("created_at DESC")
     session[:theme_id] = @theme.id
 
     respond_to do |format|

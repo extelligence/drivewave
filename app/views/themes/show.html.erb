@@ -1,3 +1,4 @@
+<hr />
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,14 +11,15 @@
   <%= @theme.user_id %>
 </p>
 
-
 <%= link_to 'テーマの編集', edit_theme_path(@theme) %> |
 <%= link_to 'テーマ一覧', themes_path %>
+<hr />
 
-<h1>New motivation</h1>
+<h1>記録する</h1>
 <%= render 'motivations/form' %>
 
-<h1>Listing motivations</h1>
+<hr />
+<h1>モチベーションの変化</h1>
 
 <table>
   <tr>

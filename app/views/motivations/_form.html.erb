@@ -12,14 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :energy %><br />
-    <%= f.text_field :energy %>
+    <%= f.label "今のモチベーションは？" %><br />
+    <%= f.radio_button :energy, "-5" %>かなり低い
+    <%= f.radio_button :energy, "-2" %>やや低い
+    <%= f.radio_button :energy, "0", :checked => "checked" %>ふつう
+    <%= f.radio_button :energy, "2" %>やや高い
+    <%= f.radio_button :energy, "5" %>かなり高い
+
   </div>
   <div class="field">
-    <%= f.label :comment %><br />
+    <%= f.label "コメント" %><br />
     <%= f.text_field :comment %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '記録する' %>
   </div>
 <% end %>
