@@ -1,5 +1,5 @@
 Drivewave::Application.routes.draw do
-  resources :motivations, :except => [:index, :new, :show, :edit, :update]
+  resources :motivations, :only => [:create, :destroy]
   resources :themes
 
   get "welcome/index"

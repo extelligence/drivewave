@@ -16,6 +16,7 @@ class ThemesController < ApplicationController
     @theme = Theme.find(params[:id])
     @motivation = Motivation.new
     @motivations = @theme.motivations
+    session[:theme_id] = @theme.id
 
     respond_to do |format|
       format.html # show.html.erb
