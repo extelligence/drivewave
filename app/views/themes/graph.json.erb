@@ -1,7 +1,8 @@
 <%=
   raw @motivations.map{|e|
     {
-      :x => e.created_at,
+      :name => e.comment,
+      :x => Motivation::to_epoch(e.created_at.to_s) * 1000,
       :y => e.energy
     }
   }.to_json

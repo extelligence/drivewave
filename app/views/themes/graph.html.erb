@@ -24,7 +24,12 @@
         text: null
       },
       xAxis: {
-        categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+        type: 'datetime',
+        dateTimeLabelFormats: {
+          week: '%m/%e',
+          month: '%m/%e',
+          day: '%m/%d'
+        }
       },
       yAxis: {
         title: {
@@ -38,7 +43,7 @@
       },
       tooltip: {
         formatter: function() {
-                    return '<b>'+ this.series.name +'</b><br/>'+
+                    return '<b>'+ this.point.name +'</b><br/>'+
             this.x +'日:'+ this.y;
         }
       },
@@ -48,8 +53,7 @@
     // Load data asynchronously using jQuery. On success, add the data
     // to the options and initiate the chart.
     // http://api.jquery.com/jQuery.getJSON/
-    // #FIXME:各テーマ毎のデータを取得するようにURLを変更する
-    jQuery.getJSON('http://localhost:3000/themes/1/graph.json', null, function(data) {
+    jQuery.getJSON('<%= graph_path(:id => params[:id], :format => 'json') %>', null, function(data) {
       options.series.push({
         name: 'extelligence012 さんのやる気',
         data: data,
