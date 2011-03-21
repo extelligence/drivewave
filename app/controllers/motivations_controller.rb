@@ -2,6 +2,7 @@ class MotivationsController < ApplicationController
   # POST /motivations
   def create
     @motivation = Motivation.new(params[:motivation])
+    @motivation.user_id = current_user.id
 
     respond_to do |format|
       if @motivation.save
