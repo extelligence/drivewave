@@ -11,5 +11,30 @@
 </p>
 
 
-<%= link_to 'Edit', edit_theme_path(@theme) %> |
-<%= link_to 'Back', themes_path %>
+<%= link_to 'テーマの編集', edit_theme_path(@theme) %> |
+<%= link_to 'テーマ一覧', themes_path %>
+
+<h1>New motivation</h1>
+<%= render 'motivations/form' %>
+
+<h1>Listing motivations</h1>
+
+<table>
+  <tr>
+    <th>Theme</th>
+    <th>User</th>
+    <th>Energy</th>
+    <th>Comment</th>
+    <th></th>
+  </tr>
+
+<% @motivations.each do |motivation| %>
+  <tr>
+    <td><%= motivation.theme_id %></td>
+    <td><%= motivation.user_id %></td>
+    <td><%= motivation.energy %></td>
+    <td><%= motivation.comment %></td>
+    <td><%= link_to 'Destroy', motivation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
