@@ -5,6 +5,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'jquery-rails', '0.2.7'
 gem 'omnisocial', '0.1.4'
 gem 'heroku', '1.18.0'
+gem 'i18n', '0.5.0'
 
 group :development, :test do
   gem "rspec", "2.5.0"

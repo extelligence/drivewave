@@ -123,6 +123,7 @@ PLATFORMS
 
 DEPENDENCIES
   heroku (= 1.18.0)
+  i18n (= 0.5.0)
   jquery-rails (= 0.2.7)
   omnisocial (= 0.1.4)
   rails (= 3.0.3)
