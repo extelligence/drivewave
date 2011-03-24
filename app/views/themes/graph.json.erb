@@ -3,7 +3,7 @@
     {
       :name => e.comment,
       :x => Motivation::to_epoch(e.created_at.to_s) * 1000,
-      :y => e.energy
+      :y => e.total
     }
   }.to_json
 %>

@@ -23,6 +23,7 @@
     <th>Theme</th>
     <th>User</th>
     <th>Energy</th>
+    <th>CurrentTotal</th>
     <th>Comment</th>
     <th>Created</th>
     <th></th>
@@ -33,6 +34,7 @@
     <td><%= motivation.theme_id %></td>
     <td><%= motivation.user_id %></td>
     <td><%= motivation.energy %></td>
+    <td><%= motivation.total %></td>
     <td><%= motivation.comment %></td>
     <td><%= motivation.created_at %></td>
     <td><%= link_to 'Destroy', motivation, :confirm => 'Are you sure?', :method => :delete %></td>

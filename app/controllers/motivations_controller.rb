@@ -4,7 +4,11 @@ class MotivationsController < ApplicationController
     @motivation = Motivation.new(params[:motivation])
     @motivation.user_id = current_user.id
     #FIXME: ここのロジックはモデルでやるべき。
-    @motivation.total = current_user.motivations.where(:theme_id => @motivation.theme_id).last.total + @motivation.energy
+    if current_user.motivations.where(:theme_id => @motivation.theme_id).last
+      @motivation.total = current_user.motivations.where(:theme_id => @motivation.theme_id).last.total + @motivation.energy
+    else
+      @motivation.total = @motivation.energy
+    end
 
     respond_to do |format|
       if @motivation.save
