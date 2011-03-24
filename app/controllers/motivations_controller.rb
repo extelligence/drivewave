@@ -3,7 +3,6 @@ class MotivationsController < ApplicationController
   def create
     @motivation = Motivation.new(params[:motivation])
     @motivation.user_id = current_user.id
-    @motivation.theme_id = session[:theme_id]
 
     respond_to do |format|
       if @motivation.save

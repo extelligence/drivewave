@@ -14,9 +14,7 @@ class ThemesController < ApplicationController
   # GET /themes/1.xml
   def show
     @theme = Theme.find(params[:id])
-    @motivation = Motivation.new
     @motivations = @theme.motivations.order("created_at DESC")
-    session[:theme_id] = @theme.id
 
     respond_to do |format|
       format.html # show.html.erb

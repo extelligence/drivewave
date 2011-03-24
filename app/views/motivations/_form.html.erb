@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :theme_id %><br />
+    <%= f.text_field :theme_id %>
+  </div>
+
+  <div class="field">
     <%= f.label "今のモチベーションは？" %><br />
     <%= f.radio_button :energy, "-5" %>かなり低い
     <%= f.radio_button :energy, "-2" %>やや低い
