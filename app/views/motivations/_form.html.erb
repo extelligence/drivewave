@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :theme_id %><br />
-    <%= f.text_field :theme_id %>
+    <%= f.select(:theme_id, current_user.themes.find(:all).map{|u| [u.title, u.id]}) %>
   </div>
 
   <div class="field">
