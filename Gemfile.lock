@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/jpmobile/jpmobile.git
+  revision: 951592e196c785ff5d94641325595eae748a44c5
+  specs:
+    jpmobile (1.0.0.pre)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -124,6 +130,7 @@ PLATFORMS
 DEPENDENCIES
   heroku (= 1.18.0)
   i18n (= 0.5.0)
+  jpmobile!
   jquery-rails (= 0.2.7)
   omnisocial (= 0.1.4)
   rails (= 3.0.3)
