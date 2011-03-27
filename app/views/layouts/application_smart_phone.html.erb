@@ -34,17 +34,6 @@
     </style>
   </head>
   <body>
-    <div>
-      <% if current_user? %>
-        <p>You are accessed Smartphone.</p>
-        <p><strong><%= current_user.name %></strong>さん&nbsp;
-        <%= link_to '[ホーム]', root_path %>&nbsp;
-        <%= link_to '[テーマ]', themes_path %>&nbsp;
-        <%= link_to '[ログアウト]', logout_path %></p>
-      <% else %>
-        <%= link_to '[ログイン]', login_path %>
-      <% end %>
-    </div>
 
     <%= yield %>
 

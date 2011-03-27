@@ -1,0 +1,43 @@
+  <!-- 記録画面 -->
+  <div id="start" data-role="page" data-fullscreen="false">
+    <div data-role="header" data-backbtn="false" data-position="fixed">
+      <h1>記録する</h1>
+      <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
+    </div>
+    <div data-role="content">
+      <p class="account"><strong><%= current_user.name %></strong>&nbsp;さん</p>
+      <p>今のやる気は、どんな感じですか？</p>
+      <div id="motivation_slider">
+        <input type="range" name="slider" id="slider" value="0" min="-2" max="2" />
+        <div class="ui-grid-a">
+          <div class="ui-block-a"><label for="slider">低い</label></div>
+          <div class="ui-block-b"><label class="ui-block-right" for="slider">高い</label></div>
+        </div>
+      </div>
+      <div id="motivation_note">
+        <textarea></textarea>
+      </div>
+      <a href="#complete" data-rel="dialog" data-role="button" data-transition="pop">記録する</a>
+      <%#= render 'motivations/form' %>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-id="menu">
+      <div data-role="navbar">
+        <ul>
+          <li><%= link_to 'ホーム', root_path, :rel => "external", "data-role" => "button", "data-icon" => "home", "data-theme" => "a" %></li>
+          <li><a href="#start" data-role="button" data-icon="check" data-theme="a">記録する</a></li>
+          <li><a href="#graph" data-role="button" data-icon="minus" data-theme="a">グラフを見る</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 記録完了画面 -->
+  <div id="complete" data-role="dialog">
+    <div data-role="header" data-backbtn="false">
+      <h1>記録完了</h1>
+    </div>
+    <div data-role="content">
+      <p>記録しました。</p>
+    </div>
+  </div>
