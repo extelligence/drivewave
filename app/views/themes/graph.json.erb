@@ -1,5 +1,6 @@
 <%=
-  raw @motivations.map{|e|
+  #raw @motivations.map{|e|
+  raw @theme.motivations(:created_at, :total).group("DATE(created_at)").map{|e|
     {
       :name => e.comment,
       :x => Motivation::to_epoch(e.created_at.to_s) * 1000,
