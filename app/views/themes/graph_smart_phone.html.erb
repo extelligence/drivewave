@@ -1,0 +1,73 @@
+<!-- グラフ画面 -->
+<div id="graph" data-role="page">
+  <div data-role="header" data-backbtn="false">
+    <h1>グラフを見る</h1>
+  </div>
+  <div data-role="content">
+    <!-- 1. Add these JavaScript inclusions in the head of your page -->
+    <script type="text/javascript" src="/javascripts/highcharts.js"></script>
+    <!-- 2. Add the JavaScript to initialize the chart on document ready -->
+<script type="text/javascript">
+  var chart;
+  $(document).ready(function() {
+
+    // define the options
+    var options = {
+      chart: {
+        renderTo: 'motivation_graph',
+        defaultSeriesType: 'spline',
+        borderColor: '#909090',
+        borderRadius: 5,
+        borderWidth: 1,
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: null
+      },
+      xAxis: {
+        type: 'datetime',
+        dateTimeLabelFormats: {
+          week: '%m/%e',
+          month: '%m/%e',
+          day: '%m/%d'
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'モチベーション'
+        },
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+        }]
+      },
+      tooltip: {
+        formatter: function() {
+                    return '<b>'+ this.point.name +'</b><br/>'+
+            this.x +'日:'+ this.y;
+        }
+      },
+      series: [],
+    }
+
+    // Load data asynchronously using jQuery. On success, add the data
+    // to the options and initiate the chart.
+    // http://api.jquery.com/jQuery.getJSON/
+    jQuery.getJSON('<%= graph_path(:id => params[:id], :format => 'json') %>', null, function(data) {
+      options.series.push({
+        name: 'extelligence012 さんのやる気',
+        data: data,
+      });
+      chart = new Highcharts.Chart(options);
+    });
+
+  });
+</script>
+    <!-- 3. Add the container -->
+    <div id="motivation_graph" style="height:230px;width:275px"></div>
+  </div>
+  <%= render 'layouts/footer_menu' %>
+</div>
