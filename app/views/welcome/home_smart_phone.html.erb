@@ -6,19 +6,7 @@
     </div>
     <div data-role="content">
       <p class="account"><strong><%= current_user.name %></strong>&nbsp;さん</p>
-      <p>今のやる気は、どんな感じですか？</p>
-      <div id="motivation_slider">
-        <input type="range" name="slider" id="slider" value="0" min="-2" max="2" />
-        <div class="ui-grid-a">
-          <div class="ui-block-a"><label for="slider">低い</label></div>
-          <div class="ui-block-b"><label class="ui-block-right" for="slider">高い</label></div>
-        </div>
-      </div>
-      <div id="motivation_note">
-        <textarea></textarea>
-      </div>
-      <a href="#complete" data-rel="dialog" data-role="button" data-transition="pop">記録する</a>
-      <%#= render 'motivations/form' %>
+      <%= render 'motivations/form_smart_phone' %>
     </div>
     <%= render 'layouts/footer_menu' %>
   </div>

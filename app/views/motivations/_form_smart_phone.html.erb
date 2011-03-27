@@ -1,0 +1,53 @@
+<%= form_for(@motivation) do |f| %>
+  <% if @motivation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@motivation.errors.count, "error") %> prohibited this motivation from being saved:</h2>
+
+      <ul>
+      <% @motivation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>スマートフォン</p>
+  <div class="field">
+    <%= f.label "実現したいこと" %><br />
+    <%= f.select(:theme_id, current_user.themes.find(:all).map{|u| [u.title, u.id]}) %>
+    <%= link_to '[新しいテーマを作成する]', new_theme_path %>
+  </div>
+
+  <div class="field">
+    <%= f.label "今のモチベーションは？" %><br />
+    <%= f.radio_button :energy, "-5" %>かなり低い
+    <%= f.radio_button :energy, "-2" %>やや低い
+    <%= f.radio_button :energy, "0", :checked => "checked" %>ふつう
+    <%= f.radio_button :energy, "2" %>やや高い
+    <%= f.radio_button :energy, "5" %>かなり高い
+
+  </div>
+  <div class="field">
+    <%= f.label "コメント" %><br />
+    <%= f.text_field :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit '記録する' %>
+  </div>
+<% end %>
+
+<!--
+#TODO:スマートフォン用のモックアップサンプル
+<p>今のやる気は、どんな感じですか？</p>
+<div id="motivation_slider">
+  <input type="range" name="slider" id="slider" value="0" min="-2" max="2" />
+  <div class="ui-grid-a">
+    <div class="ui-block-a"><label for="slider">低い</label></div>
+    <div class="ui-block-b"><label class="ui-block-right" for="slider">高い</label></div>
+  </div>
+</div>
+<div id="motivation_note">
+  <textarea></textarea>
+</div>
+<a href="#complete" data-rel="dialog" data-role="button" data-transition="pop">記録する</a>
+-->
