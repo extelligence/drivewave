@@ -5,9 +5,7 @@
       <!-- #TODO:メニュー整理
       <li><a href="#start" data-role="button" data-icon="check" data-theme="a">記録する</a></li>
       -->
-      <% unless session[:theme_id].nil? %>
-        <li><a href="/themes/<%= session[:theme_id] %>/graph" data-role="button" data-icon="minus" data-theme="a">グラフを見る</a></li>
-      <% end %>
+      <li><a href="/themes/<%= session[:theme_id] %>/graph" data-role="button" data-icon="minus" data-theme="a">グラフを見る</a></li>
     </ul>
   </div>
 </div>
