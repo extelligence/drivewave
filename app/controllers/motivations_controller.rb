@@ -9,6 +9,7 @@ class MotivationsController < ApplicationController
     else
       @motivation.total = @motivation.energy
     end
+    session[:theme_id] = @motivation.theme_id
 
     respond_to do |format|
       if @motivation.save
