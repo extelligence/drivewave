@@ -60,7 +60,7 @@
     // http://api.jquery.com/jQuery.getJSON/
     jQuery.getJSON('<%= graph_path(:id => params[:id], :format => 'json') %>', null, function(data) {
       options.series.push({
-        name: 'extelligence012 さんのやる気',
+        name: '<strong><%= current_user.name %></strong>さん',
         data: data,
       });
       chart = new Highcharts.Chart(options);
