@@ -6,6 +6,7 @@
   <div data-role="content">
     <!-- 1. Add these JavaScript inclusions in the head of your page -->
     <script type="text/javascript" src="/javascripts/highcharts.js"></script>
+    <script type="text/javascript" src="/javascripts/dateformat.js"></script>
     <!-- 2. Add the JavaScript to initialize the chart on document ready -->
 <script type="text/javascript">
   var chart;
@@ -46,8 +47,9 @@
       },
       tooltip: {
         formatter: function() {
-                    return '<b>'+ this.point.name +'</b><br/>'+
-            this.x +'日:'+ this.y;
+                     dateFormat = new DateFormat("M/dd HH:mm");
+                     dt = dateFormat.format(new Date(this.x));
+                     return '<b>'+ this.point.name +'</b><br/>'+ dt;
         }
       },
       series: [],
@@ -67,7 +69,7 @@
   });
 </script>
     <!-- 3. Add the container -->
-    <div id="motivation_graph" style="height:230px;width:275px"></div>
+    <div id="motivation_graph" style="height:250px;width:275px"></div>
   </div>
   <%= render 'layouts/footer_menu' %>
 </div>
