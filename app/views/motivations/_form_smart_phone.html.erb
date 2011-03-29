@@ -18,15 +18,22 @@
     <%= link_to '[新しいテーマを作成する]', new_theme_path %>
   </div>
 
-  <div class="field">
-    <%= f.label "今のモチベーションは？" %><br />
-    <%= f.radio_button :energy, "-5" %>かなり低い
-    <%= f.radio_button :energy, "-2" %>やや低い
-    <%= f.radio_button :energy, "0", :checked => "checked" %>ふつう
-    <%= f.radio_button :energy, "2" %>やや高い
-    <%= f.radio_button :energy, "5" %>かなり高い
-
+  <div class="motivation_bar">
+    <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>今のモチベーションは？</legend>
+      <%= f.radio_button :energy, "-5", :id => "radio1" %>
+      <label for="radio1"></label>
+      <%= f.radio_button :energy, "-2", :id => "radio2" %>
+      <label for="radio2"></label>
+      <%= f.radio_button :energy, "0", :id => "radio3", :checked => "checked" %>
+      <label for="radio3"></label>
+      <%= f.radio_button :energy, "2", :id => "radio4" %>
+      <label for="radio4"></label>
+      <%= f.radio_button :energy, "5", :id => "radio5" %>
+      <label for="radio5"></label>
+    </fieldset>
   </div>
+
   <div class="field">
     <%= f.label "コメント" %><br />
     <%= f.text_field :comment %>
