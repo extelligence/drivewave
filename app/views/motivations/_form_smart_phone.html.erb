@@ -11,12 +11,8 @@
     </div>
   <% end %>
 
-  <p>スマートフォン</p>
-  <div class="field">
-    <%= f.label "実現したいこと" %><br />
-    <%= f.select(:theme_id, current_user.themes.find(:all).map{|u| [u.title, u.id]}) %>
-    <%= link_to '[新しいテーマを作成する]', new_theme_path %>
-  </div>
+  <%#= link_to '[新しいテーマを作成する]', new_theme_path %>
+  <%= f.select(:theme_id, current_user.themes.find(:all).map{|u| [u.title, u.id]}) %>
 
   <div class="motivation_bar">
     <fieldset data-role="controlgroup" data-type="horizontal">
@@ -32,14 +28,11 @@
       <%= f.radio_button :energy, "5", :id => "radio5" %>
       <label for="radio5"></label>
     </fieldset>
+    <%= f.text_area :comment %>
+    <%= f.submit '記録する' %>
   </div>
 
-  <div class="field">
-    <%= f.label "コメント" %><br />
-    <%= f.text_field :comment %>
-  </div>
   <div class="actions">
-    <%= f.submit '記録する' %>
   </div>
 <% end %>
 
