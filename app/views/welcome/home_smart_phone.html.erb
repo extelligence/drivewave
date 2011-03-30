@@ -3,6 +3,11 @@
     <div data-role="header" data-backbtn="false" data-position="fixed">
       <h1>記録する</h1>
       <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
+      <select name="select" id="select" data-role="none" data-theme="z">
+        <option value="drivewave">Drivewaveをリリースする</option>
+        <option value="memoryline">Memorylineをリリースする</option>
+        <option value="thinkkey">ThinkKeyをリリースする</option>
+      </select>
     </div>
     <div data-role="content">
       <p class="account"><strong><%= current_user.name %></strong>&nbsp;さん</p>
