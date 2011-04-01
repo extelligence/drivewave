@@ -12,12 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :theme_id %><br />
-    <%= f.select(:theme_id, current_user.themes.find(:all).map{|u| [u.title, u.id]}) %>
-    <%= link_to '[新しいテーマを作成する]', new_theme_path %>
-  </div>
-
-  <div class="field">
     <%= f.label "今のモチベーションは？" %><br />
     <%= f.radio_button :energy, "-5" %>かなり低い
     <%= f.radio_button :energy, "-2" %>やや低い

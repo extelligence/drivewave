@@ -6,6 +6,7 @@
   <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]} %>
   <%= submit_tag "テーマを変更する" %>
 <% end %>
+<%= link_to '[新しいテーマを作成する]', new_theme_path %>
 
 <h1>記録する</h1>
 <%= render 'motivations/form' %>
