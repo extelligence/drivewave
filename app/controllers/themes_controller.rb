@@ -92,4 +92,11 @@ class ThemesController < ApplicationController
       format.json
     end
   end
+
+  # POST /themes/set
+  def set
+    @theme = current_user.themes.find(params[:theme][:id])
+    session[:theme_id] = @theme.id
+    redirect_to :back
+  end
 end

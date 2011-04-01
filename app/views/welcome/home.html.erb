@@ -1,5 +1,11 @@
 <h1>マイページ</h1>
 <p>ここはログイン後のマイページです。</p>
 
+<h1>テーマセレクト</h1>
+<%= form_tag themes_set_path do -%>
+  <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]} %>
+  <%= submit_tag "テーマを変更する" %>
+<% end %>
+
 <h1>記録する</h1>
 <%= render 'motivations/form' %>
