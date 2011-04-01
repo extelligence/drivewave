@@ -12,7 +12,6 @@
   <% end %>
 
   <%#= link_to '[新しいテーマを作成する]', new_theme_path %>
-  <%= f.select(:theme_id, current_user.themes.find(:all).map{|u| [u.title, u.id]}) %>
 
   <div class="motivation_bar">
     <fieldset data-role="controlgroup" data-type="horizontal">
