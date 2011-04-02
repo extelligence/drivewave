@@ -5,8 +5,7 @@
       <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
 
       <%= form_tag themes_set_path do -%>
-        <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]}, {"data-role" => "none"} %>
-        <%= submit_tag "テーマを変更する" %>
+        <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]}, {:onchange => "this.form.submit();", "data-role" => "none"} %>
       <% end %>
     </div>
     <div data-role="content">

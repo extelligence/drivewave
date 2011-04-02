@@ -3,8 +3,7 @@
 
 <h1>テーマセレクト</h1>
 <%= form_tag themes_set_path do -%>
-  <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]} %>
-  <%= submit_tag "テーマを変更する" %>
+  <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]}, :onchange => "this.form.submit();" %>
 <% end %>
 <%= link_to '[新しいテーマを作成する]', new_theme_path %>
 
