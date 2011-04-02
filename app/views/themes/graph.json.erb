@@ -2,6 +2,13 @@
   raw @motivations.map{|e|
   #FIXME: PostgreSQLでは集計できない。
   #raw @theme.motivations(:created_at, :total).group("DATE(created_at)").map{|e|
+    if e.comment.empty?
+      e.comment = "コメントなし"
+    else
+      #TODO:指定文字数毎に改行を入れるようにする.
+      #e.comment = e.comment.to_s.insert(4,"<br/>")
+      e.comment = e.comment.insert(4,"<br/>")
+    end
     {
       :name => e.comment,
       :x => Motivation::to_epoch(e.created_at.to_s) * 1000,
