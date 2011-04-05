@@ -17,15 +17,15 @@
     <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>今のモチベーションは？</legend>
       <%= f.radio_button :energy, "-5", :id => "radio1" %>
-      <label for="radio1"></label>
+      <label for="radio1"><%= image_tag "icons/worst.png" %></label>
       <%= f.radio_button :energy, "-2", :id => "radio2" %>
-      <label for="radio2"></label>
+      <label for="radio2"><%= image_tag "icons/worse.png" %></label>
       <%= f.radio_button :energy, "0", :id => "radio3", :checked => "checked" %>
-      <label for="radio3"></label>
+      <label for="radio3"><%= image_tag "icons/normal.png" %></label>
       <%= f.radio_button :energy, "2", :id => "radio4" %>
-      <label for="radio4"></label>
+      <label for="radio4"><%= image_tag "icons/better.png" %></label>
       <%= f.radio_button :energy, "5", :id => "radio5" %>
-      <label for="radio5"></label>
+      <label for="radio5"><%= image_tag "icons/great.png" %></label>
     </fieldset>
     <%= f.text_area :comment %>
     <%= f.submit '記録する' %>

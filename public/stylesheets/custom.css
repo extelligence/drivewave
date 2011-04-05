@@ -141,3 +141,14 @@ div #account {
   border-radius: 0em;
 }
 
+/* jQueryMobile CSS Override
+-----------------------------------------------------------------------------------------------------------*/
+.ui-btn-inner {
+  padding: .3em 18px;
+  display: block;
+  height: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
