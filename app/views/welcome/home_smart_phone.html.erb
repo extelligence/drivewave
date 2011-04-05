@@ -1,29 +1,25 @@
-  <!-- 記録画面 -->
-  <div id="start" data-role="page" data-fullscreen="false">
-    <div data-role="header" data-backbtn="false" data-position="fixed">
-      <h1>記録する</h1>
-      <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
-    </div>
-
-    <div class="ui-bar ui-bar-c">
-      <%= form_tag themes_set_path do -%>
-        <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]}, {:onchange => "this.form.submit();", "data-role" => "none"} %>
-      <% end %>
-    </div>
-
-    <div data-role="content">
-      <p class="account"><strong><%= current_user.name %></strong>&nbsp;さん</p>
-      <%= render 'motivations/form_smart_phone' %>
-    </div>
-    <%= render 'layouts/footer_menu' %>
+<!-- 記録画面 -->
+<div id="start" data-role="page" data-fullscreen="false">
+  <div data-role="header" data-backbtn="false">
+    <h1>記録する</h1>
+    <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
   </div>
 
-  <!-- 記録完了画面 -->
-  <div id="complete" data-role="dialog">
-    <div data-role="header" data-backbtn="false">
-      <h1>記録完了</h1>
-    </div>
-    <div data-role="content">
-      <p>記録しました。</p>
-    </div>
+  <%= render "layouts/header_menu" %>
+
+  <div data-role="content">
+    <%= render 'motivations/form_smart_phone' %>
   </div>
+
+  <%= render 'layouts/footer_menu' %>
+</div>
+
+<!-- 記録完了画面 -->
+<div id="complete" data-role="dialog">
+  <div data-role="header" data-backbtn="false">
+    <h1>記録完了</h1>
+  </div>
+  <div data-role="content">
+    <p>記録しました。</p>
+  </div>
+</div>

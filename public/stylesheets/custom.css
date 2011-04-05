@@ -1,6 +1,17 @@
 div .motivation_bar {
   text-align: center;
 }
+div.clear {
+  clear: both;
+}
+div #current_theme {
+  float: left;
+}
+div #account {
+  float: right;
+  text-align: right;
+  font-size: 0.8em;
+}
 
 /* jQueryMobile Theme Z(drivewave original theme)
 -----------------------------------------------------------------------------------------------------------*/
