@@ -1,0 +1,15 @@
+<div id="theme_new" data-role="page" data-fullscreen="false">
+  <div data-role="header" data-backbtn="false">
+    <h1>テーマ作成</h1>
+    <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
+  </div>
+
+  <%= render "layouts/header_menu" %>
+
+  <div data-role="content">
+    <%= render 'form' %>
+    <%= link_to 'Back', themes_path %>
+  </div>
+
+  <%= render 'layouts/footer_menu' %>
+</div>

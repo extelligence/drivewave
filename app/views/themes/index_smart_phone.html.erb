@@ -1,0 +1,32 @@
+<div id="themes" data-role="page" data-fullscreen="false">
+  <div data-role="header" data-backbtn="false">
+    <h1>実現リスト</h1>
+    <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
+  </div>
+
+  <%= render "layouts/header_menu" %>
+
+  <div data-role="content">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>User</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @themes.each do |theme| %>
+        <tr>
+          <td><%= theme.title %></td>
+          <td><%= theme.user_id %></td>
+          <td><%= link_to 'Show', theme %></td>
+          <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
+          <td><%= link_to 'Destroy', theme, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br />
+    <%= link_to 'New Theme', new_theme_path %>
+  </div>
+  <%= render 'layouts/footer_menu' %>
+</div>

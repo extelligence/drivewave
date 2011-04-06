@@ -1,0 +1,17 @@
+<div id="theme_edit" data-role="page" data-fullscreen="false">
+  <div data-role="header" data-backbtn="false">
+    <h1>テーマ変更</h1>
+    <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
+  </div>
+
+  <%= render "layouts/header_menu" %>
+
+  <div data-role="content">
+    <%= render 'form' %>
+
+    <%= link_to 'Show', @theme %> |
+    <%= link_to 'Back', themes_path %>
+  </div>
+
+  <%= render 'layouts/footer_menu' %>
+</div>
