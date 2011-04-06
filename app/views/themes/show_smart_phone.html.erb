@@ -1,55 +1,45 @@
 <div id="theme_show" data-role="page" data-fullscreen="false">
   <div data-role="header" data-backbtn="false">
-    <h1>テーマ詳細</h1>
+    <h1><%= @theme.title %></h1>
     <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
   </div>
 
   <%= render "layouts/header_menu" %>
 
   <div data-role="content">
-    <hr />
-    <p id="notice"><%= notice %></p>
-
-    <p>
-    <b>Title:</b>
-    <%= @theme.title %>
-    </p>
-
-    <p>
-    <b>User:</b>
-    <%= @theme.user_id %>
-    </p>
-
-    <%= link_to 'テーマの編集', edit_theme_path(@theme) %> |
-    <%= link_to 'テーマ一覧', themes_path %> |
-    <%= link_to 'モチベーショングラフ', :action => "graph" %>
-
-    <hr />
-    <h1>モチベーションの変化</h1>
-
-    <table>
-      <tr>
-        <th>Theme</th>
-        <th>User</th>
-        <th>Energy</th>
-        <th>CurrentTotal</th>
-        <th>Comment</th>
-        <th>Created</th>
-        <th></th>
-      </tr>
-
-      <% @motivations.each do |motivation| %>
-        <tr>
-          <td><%= motivation.theme_id %></td>
-          <td><%= motivation.user_id %></td>
-          <td><%= motivation.energy %></td>
-          <td><%= motivation.total %></td>
-          <td><%= motivation.comment %></td>
-          <td><%= motivation.created_at %></td>
-          <td><%= link_to 'Destroy', motivation, :confirm => 'Are you sure?', :method => :delete %></td>
-        </tr>
+    <ul data-role="listview" data-inset="false">
+      <li data-role="list-divider"><%= @theme.title %>
+        <p><b>スターター:</b>&nbsp;<%= @theme.user.name %>&nbsp;さん&nbsp;
+        <%= link_to '編集', edit_theme_path(@theme) %>&nbsp;
+        <%= link_to '一覧', themes_path %></p>
+        <p id="notice"><%= notice %></p>
+        <%#= link_to 'モチベーショングラフ', :action => "graph" %>
+      </li>
+      <li data-role="list-divider">モチベーション変化</li>
+      <% @motivations.each do |m| %>
+        <li>
+        <h3><%= m.user.name %></h3>
+        <span>
+        <% if m.energy == -5 %>
+          <%= image_tag "icons/worst.png" %>
+        <% elsif m.energy == -2 %>
+          <%= image_tag "icons/worse.png" %>
+        <% elsif m.energy == 0 %>
+          <%= image_tag "icons/normal.png" %>
+        <% elsif m.energy == 2 %>
+          <%= image_tag "icons/better.png" %>
+        <% elsif m.energy == 5 %>
+          <%= image_tag "icons/great.png" %>
+        <% end %>
+          <%= m.comment %></span>
+        <p class="ui-li-aside"><%= m.created_at %></p>
+        <%#= motivation.theme_id %>
+        <%#= motivation.energy %>
+        <%#= motivation.total %>
+        <%#= link_to 'Destroy', motivation, :confirm => 'Are you sure?', :method => :delete %>
+        </li>
       <% end %>
-    </table>
+    </ul>
   </div>
 
   <%= render 'layouts/footer_menu' %>
