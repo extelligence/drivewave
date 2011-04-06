@@ -1,5 +1,5 @@
 <div id="themes" data-role="page" data-fullscreen="false">
-  <div data-role="header" data-backbtn="false">
+  <div data-role="header" data-backbtn="true">
     <h1>実現リスト</h1>
     <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
   </div>
@@ -7,26 +7,22 @@
   <%= render "layouts/header_menu" %>
 
   <div data-role="content">
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>User</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <% @themes.each do |theme| %>
-        <tr>
-          <td><%= theme.title %></td>
-          <td><%= theme.user_id %></td>
-          <td><%= link_to 'Show', theme %></td>
-          <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
-          <td><%= link_to 'Destroy', theme, :confirm => 'Are you sure?', :method => :delete %></td>
-        </tr>
+    <ul data-role="listview" data-inset="false">
+      <li data-role="list-divider">実現リスト
+      <p><%= link_to '新規作成', new_theme_path %></p>
+      <p id="notice"><%= notice %></p>
+      </li>
+      <li data-role="list-divider">テーマ一覧</li>
+      <% @themes.each do |t| %>
+        <li>
+        <span><%= t.title %></span>
+        <%= link_to '', t %>
+        <%= link_to '変更', edit_theme_path(t), "data-icon" => "gear" %>
+        <%#= link_to 'Destroy', t, :confirm => 'Are you sure?', :method => :delete %>
+        </li>
       <% end %>
-    </table>
-    <br />
-    <%= link_to 'New Theme', new_theme_path %>
+    </ul>
+
   </div>
   <%= render 'layouts/footer_menu' %>
 </div>

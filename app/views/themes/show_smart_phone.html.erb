@@ -1,5 +1,5 @@
 <div id="theme_show" data-role="page" data-fullscreen="false">
-  <div data-role="header" data-backbtn="false">
+  <div data-role="header" data-backbtn="true">
     <h1><%= @theme.title %></h1>
     <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
   </div>
@@ -11,9 +11,9 @@
       <li data-role="list-divider"><%= @theme.title %>
         <p><b>スターター:</b>&nbsp;<%= @theme.user.name %>&nbsp;さん&nbsp;
         <%= link_to '編集', edit_theme_path(@theme) %>&nbsp;
-        <%= link_to '一覧', themes_path %></p>
+        <%= link_to '一覧', themes_path %>
+        <%= link_to 'グラフ', :action => "graph" %></p>
         <p id="notice"><%= notice %></p>
-        <%#= link_to 'モチベーショングラフ', :action => "graph" %>
       </li>
       <li data-role="list-divider">モチベーション変化</li>
       <% @motivations.each do |m| %>
