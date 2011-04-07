@@ -14,7 +14,7 @@ class MotivationsController < ApplicationController
 
     respond_to do |format|
       if @motivation.save
-        format.html { redirect_to(:back, :notice => 'Motivation was successfully created.') }
+        format.html { redirect_to(:action => "advice", :notice => 'Motivation was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -29,5 +29,8 @@ class MotivationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(:back) }
     end
+  end
+
+  def advice
   end
 end
