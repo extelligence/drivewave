@@ -4,6 +4,15 @@ div .motivation_bar {
 div.clear {
   clear: both;
 }
+
+div.kadomaru {
+  padding: 5px;
+  background-color: #fff;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #909090;
+}
+
 div #current_theme {
   float: left;
 }
