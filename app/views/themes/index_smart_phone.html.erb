@@ -7,22 +7,20 @@
   <%= render "layouts/header_menu" %>
 
   <div data-role="content">
-    <ul data-role="listview" data-inset="false">
-      <li data-role="list-divider">実現リスト
-      <p><%= link_to '新規作成', new_theme_path %></p>
+    <% if notice %>
       <p id="notice"><%= notice %></p>
-      </li>
-      <li data-role="list-divider">テーマ一覧</li>
+    <% end %>
+    <ul data-role="listview" data-inset="false">
+      <li data-theme="a"><%= link_to '<新しいゴールを作成する>', new_theme_path %></li>
+      <li data-role="list-divider" data-theme="a">テーマ一覧</li>
       <% @themes.each do |t| %>
         <li>
         <span><%= t.title %></span>
         <%= link_to '', t %>
-        <%= link_to '変更', edit_theme_path(t), "data-icon" => "gear" %>
-        <%#= link_to 'Destroy', t, :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'グラフ', {:action => "graph", :id => t.id}, "data-theme" => "c", "data-icon" => "info" %>
         </li>
       <% end %>
     </ul>
-
   </div>
   <%= render 'layouts/footer_menu' %>
 </div>

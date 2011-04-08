@@ -12,7 +12,7 @@
         <p><b>スターター:</b>&nbsp;<%= @theme.user.name %>&nbsp;さん&nbsp;
         <%= link_to '編集', edit_theme_path(@theme) %>&nbsp;
         <%= link_to '一覧', themes_path %>
-        <%= link_to 'グラフ', :action => "graph" %></p>
+        <%= link_to '削除', @theme, :confirm => 'Are you sure?', :method => :delete %></p>
         <p id="notice"><%= notice %></p>
       </li>
       <li data-role="list-divider">モチベーション変化</li>
