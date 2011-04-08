@@ -42,10 +42,12 @@ class ThemesController < ApplicationController
   # POST /themes.xml
   def create
     @theme = Theme.new(params[:theme])
+    @theme.user_id = current_user.id
 
     respond_to do |format|
       if @theme.save
-        format.html { redirect_to(@theme, :notice => 'Theme was successfully created.') }
+        session[:theme_id] = @theme.id
+        format.html { redirect_to(root_path, :notice => 'Theme was successfully created.') }
         format.xml  { render :xml => @theme, :status => :created, :location => @theme }
       else
         format.html { render :action => "new" }
