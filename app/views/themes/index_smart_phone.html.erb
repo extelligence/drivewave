@@ -6,8 +6,8 @@
   <%= render "layouts/header_menu" %>
   <div data-role="content">
     <% render "layouts/flash_message" %>
+    <%= link_to '新しいゴールを作成する', new_theme_path, "data-role" => "button", "data-theme" => "a" %>
     <ul data-role="listview" data-inset="true">
-      <li data-theme="a"><%= link_to '<新しいゴールを作成する>', new_theme_path %></li>
       <li data-role="list-divider" data-theme="a">マイゴール</li>
       <% @current_user_themes.each do |t| %>
         <li>
