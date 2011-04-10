@@ -1,35 +1,34 @@
-  <!-- サイトトップ -->
-  <div id="welcome" data-role="page">
-    <div data-role="header" data-backbtn="false">
-      <h1>Drivewave</h1>
-    </div>
-    <div data-role="content">
-      <div class="intro">
-        <h2>やる気の波を見てみましょう。</h2>
-        <p>Drivewaveへようこそ！</p>
-        <p>Drivewave(ドライブウェーブ)は、あなたの<strong>モチベーションを見える化する</strong>マイクロライフログサービスです。</p>
-        <p>現在、<strong>12,345</strong>人がDrivewaveを使っています。</p>
-        <ol>
-          <li><strong>簡単</strong>に使えます。
-          <p>いつでも、どこでも、簡単に、サッと記録できます。</p>
-          </li>
-          <li>モチベーションが<strong>見えます</strong>。
-          <p>自分のやる気の変化や流れが、見えるようになります。</p>
-          </li>
-          <li><strong>今すぐ</strong>始められます。
-          <p>Drivewaveを使い始めるために、面倒なユーザー登録は一切必要ありません。<br />
-          twitterかfacebookのアカウントを持っていれば、すぐに使い始めることができます。</p>
-          </li>
-        </ol>
-        <p>Drivewaveを使って、自分がどんなときにやる気が上がり、どんなときに下がるのか、その答えを見ていきましょう。</p>
-      </div>
-      <a href="/auth/twitter" data-role="button" rel="external" data-transition="flip">試しに使ってみる</a>
-      <p>※ログインするには、twitterアカウントが必要です。</p>
-    </div>
-    <div data-role="footer" data-id="copyright">
-      <p><a href="http://twitter.com/extelligence0">Takeshi Sato</a>&nbsp;production</p>
-      <p>Drivewave&nbsp;&copy;&nbsp;2011</p>
-    </div>
+<!-- サイトトップ -->
+<div id="welcome" data-role="page">
+  <div data-role="header" data-backbtn="false">
+    <h1>Drivewave</h1>
   </div>
-
-
+  <div data-role="content">
+    <%= render "layouts/flash_message" %>
+    <div class="intro">
+      <h2>やる気の波を見てみましょう。</h2>
+      <p>Drivewaveへようこそ！</p>
+      <p>Drivewave(ドライブウェーブ)は、あなたの<strong>モチベーションを見える化する</strong>マイクロライフログサービスです。</p>
+      <p>現在、<strong>12,345</strong>人がDrivewaveを使っています。</p>
+      <ol>
+        <li><strong>簡単</strong>に使えます。
+        <p>いつでも、どこでも、簡単に、サッと記録できます。</p>
+        </li>
+        <li>モチベーションが<strong>見えます</strong>。
+        <p>自分のやる気の変化や流れが、見えるようになります。</p>
+        </li>
+        <li><strong>今すぐ</strong>始められます。
+        <p>Drivewaveを使い始めるために、面倒なユーザー登録は一切必要ありません。<br />
+        twitterかfacebookのアカウントを持っていれば、すぐに使い始めることができます。</p>
+        </li>
+      </ol>
+      <p>Drivewaveを使って、自分がどんなときにやる気が上がり、どんなときに下がるのか、その答えを見ていきましょう。</p>
+    </div>
+    <a href="/auth/twitter" data-role="button" rel="external" data-transition="flip">試しに使ってみる</a>
+    <p>※ログインするには、twitterアカウントが必要です。</p>
+  </div>
+  <div data-role="footer" data-id="copyright">
+    <p><a href="http://twitter.com/extelligence0">Takeshi Sato</a>&nbsp;production</p>
+    <p>Drivewave&nbsp;&copy;&nbsp;2011</p>
+  </div>
+</div>

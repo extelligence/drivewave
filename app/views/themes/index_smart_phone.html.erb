@@ -3,13 +3,9 @@
     <h1>実現リスト</h1>
     <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
   </div>
-
   <%= render "layouts/header_menu" %>
-
   <div data-role="content">
-    <% if notice %>
-      <p id="notice"><%= notice %></p>
-    <% end %>
+    <% render "layouts/flash_message" %>
     <ul data-role="listview" data-inset="false">
       <li data-theme="a"><%= link_to '<新しいゴールを作成する>', new_theme_path %></li>
       <li data-role="list-divider" data-theme="a">テーマ一覧</li>

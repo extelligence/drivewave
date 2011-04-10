@@ -11,8 +11,6 @@
     </div>
   <% end %>
 
-  <%#= link_to '[新しいテーマを作成する]', new_theme_path %>
-
   <div class="motivation_bar">
     <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>今のモチベーションは？</legend>
@@ -30,23 +28,4 @@
     <%= f.text_area :comment %>
     <%= f.submit '記録する' %>
   </div>
-
-  <div class="actions">
-  </div>
 <% end %>
-
-<!--
-#TODO:スマートフォン用のモックアップサンプル
-<p>今のやる気は、どんな感じですか？</p>
-<div id="motivation_slider">
-  <input type="range" name="slider" id="slider" value="0" min="-2" max="2" />
-  <div class="ui-grid-a">
-    <div class="ui-block-a"><label for="slider">低い</label></div>
-    <div class="ui-block-b"><label class="ui-block-right" for="slider">高い</label></div>
-  </div>
-</div>
-<div id="motivation_note">
-  <textarea></textarea>
-</div>
-<a href="#complete" data-rel="dialog" data-role="button" data-transition="pop">記録する</a>
--->
