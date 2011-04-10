@@ -1,9 +1,9 @@
 <div class="ui-bar ui-bar-d">
+  <div id="account"><strong><%= current_user.name %></strong>&nbsp;さん</div>
   <div id="current_theme">
     <%= form_tag themes_set_path do -%>
       <%= select :theme, :id, current_user.themes.all.collect{|i| [i.title, i.id] }, {:selected => session[:theme_id]}, {:onchange => "this.form.submit();", "data-role" => "none"} %>
     <% end %>
   </div>
-  <div id="account"><strong><%= current_user.name %></strong>&nbsp;さん</div>
   <div class="clear"></div>
 </div>
