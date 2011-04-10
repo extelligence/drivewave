@@ -17,29 +17,8 @@
     <%#= stylesheet_link_tag :all %>
     <%#= javascript_include_tag :defaults %>
     <%#= csrf_meta_tag %>
-    <style type="text/css" media="screen">
-      /* Hide text-field*/
-      #slider {
-        display: none;
-      }
-      div.ui-slider {
-        width: 90%;
-      }
-      label.ui-block-right{
-        text-align: right;
-        float: right;
-      }
-      .min-width-480px div.ui-slider {
-        width: 90%;
-      }
-      .min-width-480px label.ui-slider {
-        width: 50%;
-      }
-    </style>
   </head>
   <body>
-
     <%= yield %>
-
   </body>
 </html>
