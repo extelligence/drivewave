@@ -2,7 +2,8 @@ class ThemesController < ApplicationController
   # GET /themes
   # GET /themes.xml
   def index
-    @themes = Theme.all
+    @current_user_themes = current_user.themes.all
+    @themes = Theme.where("user_id != ?", current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
