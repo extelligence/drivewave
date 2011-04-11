@@ -7,16 +7,18 @@
   <div data-role="content">
     <%= render "layouts/flash_message" %>
     <ul data-role="listview" data-inset="true">
-      <li data-role="list-divider" data-theme="a">マイゴール</li>
+      <li data-theme="a">マイゴール</li>
       <% @current_user_themes.each do |t| %>
-        <li>
+        <li data-theme="c">
           <h3><%= t.title %></h3>
-          <%= link_to '', t %>
-          <%= link_to 'グラフ', {:controller => "themes", :action => "graph", :id => t.id}, "data-theme" => "c", "data-icon" => "info" %>
+          <%= link_to "", t %>
+          <%= link_to 'グラフ', {:controller => "themes", :action => "graph", :id => t.id}, "data-theme" => "c", "data-icon" => "info", :rel => "external" %>
         </li>
       <% end %>
+      <li data-theme="c" data-icon="plus">
+        <%= link_to '<新しいゴールを作成する>', new_theme_path %>
+      </li>
     </ul>
-    <%= link_to '新しいゴールを作成する', new_theme_path, "data-role" => "button", "data-theme" => "a" %>
   </div>
   <%= render 'layouts/footer_menu' %>
 </div>
