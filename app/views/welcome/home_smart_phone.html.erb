@@ -10,13 +10,12 @@
       <li data-theme="a">マイゴール</li>
       <% @current_user_themes.each do |t| %>
         <li data-theme="c">
-          <h3><%= t.title %></h3>
-          <%= link_to "", t %>
+          <%= link_to t.title, t %>
           <%= link_to 'グラフ', {:controller => "themes", :action => "graph", :id => t.id}, "data-theme" => "c", "data-icon" => "info", :rel => "external" %>
         </li>
       <% end %>
       <li data-theme="c" data-icon="plus">
-        <%= link_to '<新しいゴールを作成する>', new_theme_path %>
+      <%= link_to '新しいゴールを作成する...', new_theme_path %>
       </li>
     </ul>
   </div>

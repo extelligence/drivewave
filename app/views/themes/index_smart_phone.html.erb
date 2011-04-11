@@ -10,8 +10,7 @@
       <li data-role="list-divider" data-theme="a">みんなのゴール</li>
       <% @themes.each do |t| %>
         <li>
-          <h3><%= t.title %></h3>
-          <%= link_to '', t %>
+          <%= link_to t.title, t %>
         </li>
       <% end %>
     </ul>
