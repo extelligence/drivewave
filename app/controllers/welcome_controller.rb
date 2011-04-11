@@ -1,9 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     if current_user?
-      @motivation = Motivation.new
-      @theme = Theme.new
-
+      @current_user_themes = current_user.themes.all
       unless current_user.themes.first
         redirect_to new_theme_url
       else

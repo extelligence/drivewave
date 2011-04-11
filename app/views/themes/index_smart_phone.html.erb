@@ -1,22 +1,11 @@
 <div id="themes" data-role="page" data-fullscreen="false">
   <div data-role="header">
-    <h1>ゴールリスト</h1>
+    <h1>みんなのゴール</h1>
     <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
   </div>
   <%= render "layouts/header_menu" %>
   <div data-role="content">
     <% render "layouts/flash_message" %>
-    <%= link_to '新しいゴールを作成する', new_theme_path, "data-role" => "button", "data-theme" => "a" %>
-    <ul data-role="listview" data-inset="true">
-      <li data-role="list-divider" data-theme="a">マイゴール</li>
-      <% @current_user_themes.each do |t| %>
-        <li>
-          <h3><%= t.title %></h3>
-          <%= link_to '', t %>
-          <%= link_to 'グラフ', {:action => "graph", :id => t.id}, "data-theme" => "c", "data-icon" => "info" %>
-        </li>
-      <% end %>
-    </ul>
     <ul data-role="listview" data-inset="true">
       <li data-role="list-divider" data-theme="a">みんなのゴール</li>
       <% @themes.each do |t| %>

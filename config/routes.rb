@@ -2,7 +2,7 @@ Drivewave::Application.routes.draw do
   get "motivations/advice"
   post "themes/set"
   match 'themes/:id/graph' => 'themes#graph', :as => "graph", :via => :get
-  resources :motivations, :only => [:create, :destroy, :advice]
+  resources :motivations, :only => [:new, :create, :destroy]
   resources :themes
 
   get "welcome/index"

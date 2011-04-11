@@ -1,4 +1,25 @@
 class MotivationsController < ApplicationController
+
+  def new
+    if current_user?
+      @motivation = Motivation.new
+      @theme = Theme.new
+
+      unless current_user.themes.first
+        redirect_to new_theme_url
+      else
+        unless session[:theme_id]
+          session[:theme_id] = current_user.themes.first.id
+        end
+        respond_to do |format|
+          format.html
+        end
+      end
+    else
+      redirect_to "welcome/index"
+    end
+  end
+
   # POST /motivations
   def create
     @motivation = Motivation.new(params[:motivation])
