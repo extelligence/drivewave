@@ -3,8 +3,8 @@
     <ul>
       <li><%= link_to 'ホーム', root_path, :rel => "external", "data-role" => "button", "data-icon" => "home" %></li>
       <li><%= link_to '記録する', new_motivation_path, :rel => "external", "data-role" => "button", "data-icon" => "check" %></li>
-      <li><a href="/themes/<%= session[:theme_id] %>/graph" data-role="button" data-icon="minus" data-theme="a">グラフ</a></li>
-      <li><%= link_to 'みんな', themes_path, :rel => "external", "data-role" => "button", "data-icon" => "star", "data-theme" => "a" %></li>
+      <!-- <li><a href="/themes/<%= session[:theme_id] %>/graph" data-role="button" data-icon="minus" data-theme="a">グラフ</a></li> -->
+      <li><%= link_to 'みんなのゴール', themes_path, :rel => "external", "data-role" => "button", "data-icon" => "star", "data-theme" => "a" %></li>
     </ul>
   </div>
 </div>

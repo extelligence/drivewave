@@ -4,41 +4,32 @@
     <%= link_to 'ログアウト', logout_path, :class => "ui-btn-right" %>
   </div>
   <%= render "layouts/header_menu" %>
+  <div class="ui-bar ui-bar-b">
+    <h1><%= @theme.title %></h1>
+  </div>
   <div data-role="content">
     <%= render "layouts/flash_message" %>
-    <ul data-role="listview" data-inset="false">
-      <li data-role="list-divider"><%= @theme.title %>
-        <p><b>スターター:</b>&nbsp;<%= @theme.user.name %>&nbsp;さん&nbsp;
-        <%= link_to '編集', edit_theme_path(@theme) %>&nbsp;
-        <%= link_to '一覧', themes_path %>
-        <%= link_to '削除', @theme, :confirm => 'Are you sure?', :method => :delete %></p>
-        <p id="notice"><%= notice %></p>
+    <%= render "graph_smart_phone" %>
+    <a href="#" data-icon="star" data-role="button" data-theme="d">応援する!</a>
+
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider">最近の活動
+      <span>&nbsp;<b>スターター:</b>&nbsp;<%= @theme.user.name %>&nbsp;さん</span>
       </li>
-      <li data-role="list-divider">モチベーション変化</li>
       <% @motivations.each do |m| %>
         <li>
-        <h3><%= m.user.name %></h3>
-        <span>
-        <% if m.energy == -5 %>
-          <%= image_tag "icons/worst.png" %>
-        <% elsif m.energy == -2 %>
-          <%= image_tag "icons/worse.png" %>
-        <% elsif m.energy == 0 %>
-          <%= image_tag "icons/normal.png" %>
-        <% elsif m.energy == 2 %>
-          <%= image_tag "icons/better.png" %>
-        <% elsif m.energy == 5 %>
-          <%= image_tag "icons/great.png" %>
-        <% end %>
-          <%= m.comment %></span>
-        <p class="ui-li-aside"><%= m.created_at %></p>
-        <%#= motivation.theme_id %>
-        <%#= motivation.energy %>
-        <%#= motivation.total %>
-        <%#= link_to 'Destroy', motivation, :confirm => 'Are you sure?', :method => :delete %>
+          <%= link_to m.comment %>
+          <%= link_to '削除する', m, :confirm => 'Are you sure?', :method => :delete %>
         </li>
       <% end %>
     </ul>
+  </div>
+  <div class="ui-bar ui-bar-b">
+    <div data-role="controlgroup" data-type="horizontal">
+      <%= link_to '達成した', edit_theme_path(@theme), "data-role" => "button", "data-inline" => "true", "data-icon" => "star" %>
+      <%= link_to '修正する', edit_theme_path(@theme), "data-role" => "button", "data-inline" => "true", "data-icon" => "edit" %>
+      <%= link_to '諦める', @theme, :confirm => 'Are you sure?', :method => :delete, "data-role" => "button", "data-inline" => "true", "data-icon" => "delete" %>
+    </div>
   </div>
 
   <%= render 'layouts/footer_menu' %>

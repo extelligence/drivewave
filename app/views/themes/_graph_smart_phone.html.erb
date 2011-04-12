@@ -1,0 +1,67 @@
+    <!-- 1. Add these JavaScript inclusions in the head of your page -->
+    <script type="text/javascript" src="/javascripts/highcharts.js"></script>
+    <script type="text/javascript" src="/javascripts/dateformat.js"></script>
+    <!-- 2. Add the JavaScript to initialize the chart on document ready -->
+<script type="text/javascript">
+  var chart;
+  $(document).ready(function() {
+
+    // define the options
+    var options = {
+      chart: {
+        renderTo: 'motivation_graph',
+        defaultSeriesType: 'spline',
+        borderColor: '#909090',
+        borderRadius: 5,
+        borderWidth: 1,
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+          text: ''
+      },
+      xAxis: {
+        type: 'datetime',
+        dateTimeLabelFormats: {
+          week: '%m/%e',
+          month: '%m/%e',
+          day: '%m/%d'
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'モチベーション'
+        },
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+        }]
+      },
+      tooltip: {
+        formatter: function() {
+                     dateFormat = new DateFormat("M/dd HH:mm");
+                     dt = dateFormat.format(new Date(this.x));
+                     return this.point.name +'<br/>'+ dt;
+        }
+      },
+      series: [],
+    }
+
+    // Load data asynchronously using jQuery. On success, add the data
+    // to the options and initiate the chart.
+    // http://api.jquery.com/jQuery.getJSON/
+    jQuery.getJSON('<%= graph_path(:id => params[:id], :format => 'json') %>', null, function(data) {
+      options.series.push({
+        name: '<strong><%= current_user.name %></strong>さん',
+        data: data,
+      });
+      chart = new Highcharts.Chart(options);
+    });
+
+  });
+</script>
+
+<!-- 3. Add the container -->
+<div id="motivation_graph" style="height:270px;"></div>
